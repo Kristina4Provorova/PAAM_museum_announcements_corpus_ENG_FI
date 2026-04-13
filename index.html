@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Корпус музейных анонсов (PAAM)</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        h1 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 2em; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .download { background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>📊 Корпус музейных пресс-релизов и анонсов (PAAM)</h1>
+    <p><strong>Автор:</strong> [Ваше имя]<br>
+    <strong>Описание:</strong> Корпус содержит 60 текстов трёх типов: пресс-релизы (1960-е), анонсы 2000-х годов и современные анонсы (2023). Включает разметку по частям речи (Universal Dependencies) и именованным сущностям (PERSON, DATE, GPE, ORG, WORK_OF_ART).</p>
+    
+    <h2>📈 Общая статистика по корпусу</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>СВОДНАЯ СТАТИСТИКА ПО КОРПУСУ</th>
+      <th>Unnamed: 1</th>
+      <th>Unnamed: 2</th>
+      <th>Unnamed: 3</th>
+      <th>Unnamed: 4</th>
+      <th>Unnamed: 5</th>
+      <th>Unnamed: 6</th>
+      <th>Unnamed: 7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Раздел</td>
+      <td>Текстов</td>
+      <td>Слов</td>
+      <td>Предложений</td>
+      <td>Ср. слов на текст</td>
+      <td>Ср. предложений на текст</td>
+      <td>Сущностей</td>
+      <td>Ср. сущностей на текст</td>
+    </tr>
+    <tr>
+      <td>press_releases</td>
+      <td>20</td>
+      <td>33789</td>
+      <td>2963</td>
+      <td>2413.5</td>
+      <td>211.6</td>
+      <td>4076</td>
+      <td>291.1</td>
+    </tr>
+    <tr>
+      <td>announcements_2000s</td>
+      <td>20</td>
+      <td>5422</td>
+      <td>203</td>
+      <td>361.5</td>
+      <td>13.5</td>
+      <td>449</td>
+      <td>29.9</td>
+    </tr>
+    <tr>
+      <td>modern_announcements</td>
+      <td>20</td>
+      <td>351</td>
+      <td>22</td>
+      <td>23.4</td>
+      <td>1.5</td>
+      <td>43</td>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>ОБЩИЕ ИТОГИ ПО КОРПУСУ</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Всего текстов</td>
+      <td>60</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Всего слов</td>
+      <td>39562</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Всего предложений</td>
+      <td>3188</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Всего сущностей</td>
+      <td>4568</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Среднее слов на текст</td>
+      <td>899.1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Среднее предложений на текст</td>
+      <td>72.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Среднее сущностей на текст</td>
+      <td>103.8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+    
+    <h2>🏷️ Части речи по разделам</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ОБЩАЯ СТАТИСТИКА ЧАСТЕЙ РЕЧИ ПО РАЗДЕЛАМ</th>
+      <th>Unnamed: 1</th>
+      <th>Unnamed: 2</th>
+      <th>Unnamed: 3</th>
+      <th>Unnamed: 4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>POS-Тег</td>
+      <td>Описание</td>
+      <td>press_releases</td>
+      <td>announcements_2000s</td>
+      <td>modern_announcements</td>
+    </tr>
+    <tr>
+      <td>ADJ</td>
+      <td>прилагательное</td>
+      <td>2408</td>
+      <td>525</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>ADP</td>
+      <td>предлог</td>
+      <td>4742</td>
+      <td>804</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <td>ADV</td>
+      <td>наречие</td>
+      <td>900</td>
+      <td>215</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>AUX</td>
+      <td>AUX</td>
+      <td>1426</td>
+      <td>206</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>CCONJ</td>
+      <td>сочинительный союз</td>
+      <td>1307</td>
+      <td>235</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>DET</td>
+      <td>артикль/определитель</td>
+      <td>3265</td>
+      <td>661</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <td>INTJ</td>
+      <td>междометие</td>
+      <td>26</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>NOUN</td>
+      <td>существительное</td>
+      <td>7577</td>
+      <td>1220</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>NUM</td>
+      <td>числительное</td>
+      <td>2733</td>
+      <td>170</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>PART</td>
+      <td>частица</td>
+      <td>565</td>
+      <td>108</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>PRON</td>
+      <td>местоимение</td>
+      <td>1284</td>
+      <td>174</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>PROPN</td>
+      <td>имя собственное</td>
+      <td>8588</td>
+      <td>866</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>PUNCT</td>
+      <td>пунктуация</td>
+      <td>8355</td>
+      <td>752</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <td>SCONJ</td>
+      <td>подчинительный союз</td>
+      <td>273</td>
+      <td>42</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>SPACE</td>
+      <td>пробел</td>
+      <td>425</td>
+      <td>113</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>SYM</td>
+      <td>символ</td>
+      <td>504</td>
+      <td>23</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>VERB</td>
+      <td>глагол</td>
+      <td>3005</td>
+      <td>432</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>X</td>
+      <td>другое</td>
+      <td>140</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+    
+    <h2>🏛️ Типы сущностей по разделам</h2>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ОБЩАЯ СТАТИСТИКА СУЩНОСТЕЙ ПО РАЗДЕЛАМ</th>
+      <th>Unnamed: 1</th>
+      <th>Unnamed: 2</th>
+      <th>Unnamed: 3</th>
+      <th>Unnamed: 4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Тип сущности</td>
+      <td>Описание</td>
+      <td>press_releases</td>
+      <td>announcements_2000s</td>
+      <td>modern_announcements</td>
+    </tr>
+    <tr>
+      <td>PERSON</td>
+      <td>человек, личность</td>
+      <td>1264</td>
+      <td>155</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>DATE</td>
+      <td>дата или период времени</td>
+      <td>994</td>
+      <td>125</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>WORK_OF_ART</td>
+      <td>произведение искусства</td>
+      <td>94</td>
+      <td>7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>GPE</td>
+      <td>страна, город, место</td>
+      <td>776</td>
+      <td>47</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>ORG</td>
+      <td>организация</td>
+      <td>948</td>
+      <td>115</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+    
+    <h2>📥 Скачать корпус</h2>
+    <p><a href="PAAM_NEW.xlsx" class="download" download>Скачать PAAM_NEW.xlsx (Excel)</a></p>
+    <p><small>Файл содержит все тексты, статистику и разметку.</small></p>
+</body>
+</html>
